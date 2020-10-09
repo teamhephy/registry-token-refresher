@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/deis/registry-token-refresher/pkg"
-	"github.com/deis/registry-token-refresher/pkg/credentials"
+	"github.com/teamhephy/registry-token-refresher/pkg"
+	"github.com/teamhephy/registry-token-refresher/pkg/credentials"
 	"k8s.io/kubernetes/pkg/api"
 	kcl "k8s.io/kubernetes/pkg/client/unversioned"
 	"k8s.io/kubernetes/pkg/fields"

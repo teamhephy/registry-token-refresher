@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/arschles/assert"
-	"github.com/deis/registry-token-refresher/pkg/credentials"
-	"github.com/deis/registry-token-refresher/pkg/k8s"
+	"github.com/teamhephy/registry-token-refresher/pkg/credentials"
+	"github.com/teamhephy/registry-token-refresher/pkg/k8s"
 	"k8s.io/kubernetes/pkg/api"
 	kcl "k8s.io/kubernetes/pkg/client/unversioned"
 )
