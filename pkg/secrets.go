@@ -2,7 +2,7 @@ package pkg
 
 import (
 	"encoding/json"
-	"github.com/deis/registry-token-refresher/pkg/credentials"
+	"github.com/teamhephy/registry-token-refresher/pkg/credentials"
 	"k8s.io/kubernetes/pkg/api"
 	apierrors "k8s.io/kubernetes/pkg/api/errors"
 	kcl "k8s.io/kubernetes/pkg/client/unversioned"
