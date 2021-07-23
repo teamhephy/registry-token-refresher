@@ -1,15 +1,16 @@
 package pkg
 
 import (
-	"github.com/teamhephy/registry-token-refresher/pkg/credentials"
 	"io/ioutil"
 	"os"
 	"strconv"
+
+	"github.com/teamhephy/registry-token-refresher/pkg/credentials"
 )
 
 const (
 	gcsKey          = "key.json"
-	tokenRefreshKey = "DEIS_TOKEN_REFRESH_TIME"
+	tokenRefreshKey = "DEIS_TOKEN_REFRESH_TIME" //nolint:gosec
 )
 
 func GetRegistryParams(registryCredLocation string) (credentials.Parameters, error) {
@@ -27,7 +28,7 @@ func GetRegistryParams(registryCredLocation string) (credentials.Parameters, err
 		if err != nil {
 			return nil, err
 		}
-		//GCS expects them to have the location of the service account credential json file
+		// GCS expects them to have the location of the service account credential json file
 		if file.Name() == gcsKey {
 			params["keyfile"] = registryCredLocation + file.Name()
 		} else {
