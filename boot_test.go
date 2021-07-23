@@ -14,8 +14,8 @@ import (
 
 func TestGetDiff(t *testing.T) {
 	nsList := []api.Namespace{
-		api.Namespace{ObjectMeta: api.ObjectMeta{Name: "app1"}},
-		api.Namespace{ObjectMeta: api.ObjectMeta{Name: "app2"}},
+		{ObjectMeta: api.ObjectMeta{Name: "app1"}},
+		{ObjectMeta: api.ObjectMeta{Name: "app2"}},
 	}
 	appList := []string{}
 	added, appList := getDiff(appList, nsList)
@@ -81,7 +81,7 @@ func TestTokenRefresherSecretErr(t *testing.T) {
 	tokenRefErrCh := make(chan error)
 	doneCh := make(chan struct{})
 	go tokenRefresher(kubeClient, credProvider, appListCh, tokenRefErrCh, doneCh)
-	appListCh <- []api.Namespace{api.Namespace{ObjectMeta: api.ObjectMeta{Name: "testapp"}}}
+	appListCh <- []api.Namespace{{ObjectMeta: api.ObjectMeta{Name: "testapp"}}}
 	timeoutCh := time.After(time.Second * 5)
 	select {
 	case err := <-tokenRefErrCh:
@@ -116,7 +116,7 @@ func TestTokenRefresherCreateSecretSuccess(t *testing.T) {
 	tokenRefErrCh := make(chan error)
 	doneCh := make(chan struct{})
 	go tokenRefresher(kubeClient, credProvider, appListCh, tokenRefErrCh, doneCh)
-	appListCh <- []api.Namespace{api.Namespace{ObjectMeta: api.ObjectMeta{Name: "testapp"}}}
+	appListCh <- []api.Namespace{{ObjectMeta: api.ObjectMeta{Name: "testapp"}}}
 	timeoutCh := time.After(time.Second * 5)
 	select {
 	case err := <-tokenRefErrCh:
@@ -154,7 +154,7 @@ func TestTokenRefresherUpdateSecretSuccess(t *testing.T) {
 	tokenRefErrCh := make(chan error)
 	doneCh := make(chan struct{})
 	go tokenRefresher(kubeClient, credProvider, appListCh, tokenRefErrCh, doneCh)
-	appListCh <- []api.Namespace{api.Namespace{ObjectMeta: api.ObjectMeta{Name: "testapp"}}}
+	appListCh <- []api.Namespace{{ObjectMeta: api.ObjectMeta{Name: "testapp"}}}
 	timeoutCh := time.After(time.Second * 5)
 	select {
 	case err := <-tokenRefErrCh:

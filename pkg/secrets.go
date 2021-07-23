@@ -23,7 +23,7 @@ type AuthInfo struct {
 func CreateSecret(secretsClient kcl.SecretsInterface, dockerconfig credentials.DockerConfig) error {
 	authStruct := AuthsStruct{
 		Auths: map[string]AuthInfo{
-			dockerconfig.Hostname: AuthInfo{
+			dockerconfig.Hostname: {
 				Auth:  dockerconfig.Token,
 				Email: "none@none.com",
 			},
@@ -51,7 +51,7 @@ func CreateSecret(secretsClient kcl.SecretsInterface, dockerconfig credentials.D
 func UpdateSecret(secretsClient kcl.SecretsInterface, dockerconfig credentials.DockerConfig) error {
 	authStruct := AuthsStruct{
 		Auths: map[string]AuthInfo{
-			dockerconfig.Hostname: AuthInfo{
+			dockerconfig.Hostname: {
 				Auth:  dockerconfig.Token,
 				Email: "none@none.com",
 			},
