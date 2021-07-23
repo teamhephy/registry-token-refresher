@@ -69,23 +69,19 @@ docker-build: build check-docker
 	DOCKER_BUILDKIT=1 docker build ${DOCKER_BUILD_FLAGS} -t ${IMAGE} rootfs
 	docker tag ${IMAGE} ${MUTABLE_IMAGE}
 
-test: test-style test-unit test-functional
+test: lint test-unit test-functional
 
-test-cover:
+test-cover: check-docker vendor
 	${DEV_ENV_CMD} test-cover.sh
 
 test-functional:
 	@echo no functional tests
 
-test-style: check-docker
-	${DEV_ENV_CMD} make style-check
+lint: check-docker vendor
+	${DEV_ENV_CMD} lint
 
-# This should only be executed within the containerized development environment.
-style-check:
-	lint
-
-test-unit:
-	${DEV_ENV_CMD} go test --cover --race -v ${GO_PACKAGES}
+test-unit: check-docker  vendor
+	${DEV_ENV_CMD} go test --cover -v ${GO_PACKAGES}
 
 update-changelog:
 	${DEV_ENV_PREFIX} -e RELEASE=${WORKFLOW_RELEASE} ${DEV_ENV_IMAGE} gen-changelog.sh \

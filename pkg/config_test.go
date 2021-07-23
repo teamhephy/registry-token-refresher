@@ -14,7 +14,7 @@ func TestGetregistryParams(t *testing.T) {
 
 	// start by writing out a file to registryCredLocation
 	data := []byte("hello world\n")
-	if err = ioutil.WriteFile(registryCredLocation+"/foo", data, 0644); err != nil {
+	if err = ioutil.WriteFile(registryCredLocation+"/foo", data, 0600); err != nil {
 		t.Fatalf("could not write file to registry cred location: %v", err)
 	}
 

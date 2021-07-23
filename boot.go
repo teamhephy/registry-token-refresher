@@ -108,12 +108,14 @@ func main() {
 	for {
 		select {
 		case err = <-tokenRefErrCh:
-			log.Fatalf("error during token refresh %s", err)
+			log.Printf("error during token refresh %s", err)
+			return
 		default:
 			labelMap := labels.Set{"heritage": "deis"}
 			nsList, err := kubeClient.Namespaces().List(api.ListOptions{LabelSelector: labelMap.AsSelector(), FieldSelector: fields.Everything()})
 			if err != nil {
-				log.Fatal("Error getting kubernetes namespaces ", err)
+				log.Printf("Error getting kubernetes namespaces %s", err)
+				return
 			}
 			appListCh <- nsList.Items
 		}
