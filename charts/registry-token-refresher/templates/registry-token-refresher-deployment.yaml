@@ -22,6 +22,10 @@ spec:
       labels:
         app: deis-registry-token-refresher
     spec:
+{{- with .Values.global.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+{{- end }}
       containers:
         - name: deis-registry-token-refresher
           image: {{.Values.org}}/registry-token-refresher:{{.Values.docker_tag}}
