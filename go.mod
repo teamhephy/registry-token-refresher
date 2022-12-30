@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/arschles/assert v1.0.0
-	github.com/aws/aws-sdk-go v1.0.8
+	github.com/aws/aws-sdk-go v1.33.0
 	github.com/blang/semver v3.0.1+incompatible // indirect
 	github.com/coreos/go-oidc v0.0.0-20160504003935-5cf2aa52da8c // indirect
 	github.com/coreos/go-systemd v0.0.0-20160527140244-4484981625c1 // indirect
@@ -14,10 +14,8 @@ require (
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/emicklei/go-restful v1.1.4-0.20160814184150-89ef8af493ab // indirect
-	github.com/go-ini/ini v0.0.0-20151119163333-2e44421e256d // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/google/cadvisor v0.24.0-alpha1.0.20161021224824-a726d13de8cb // indirect
-	github.com/jmespath/go-jmespath v0.0.0-20151117175822-3433f3ea46d9 // indirect
 	github.com/jonboulle/clockwork v0.0.0-20141017032234-72f9bd7c4e0c // indirect
 	github.com/juju/ratelimit v0.0.0-20151125201925-77ed1c8a0121 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
