@@ -1,6 +1,6 @@
 name: registry-token-refresher
 home: https://github.com/teamhephy/registry-token-refresher
-version: <Will be populated by the ci before publishing the chart>
+version: 1.2.3
 description: Token Refresher for Hephy Workflow.
 keywords:
 - private registry
